@@ -1,8 +1,12 @@
 #CodeJam 2022 Round C Problem 3 - Ants on a Stick
 
+#ran out of time on this one, so I didn't get to deal with the ants colliding at the half-second case
+#plan to finish up later.
+
 cases = int(input())
 output = []
 
+#never made a class in Python before, let's see how it goes.
 class Ant:
     def __init__(self, num, spd, pos):
         self.num = num
@@ -18,6 +22,8 @@ for i in range(cases):
         if d == 0:
             d = -1
         newAnt = Ant(j+1, d, p)
+        
+        #store the ants in order of position (left to right), not 'index' (but we will need the index for our answer)
 
         if len(ants) == 0:
             ants.append(newAnt)
@@ -31,8 +37,8 @@ for i in range(cases):
 
     while len(ants) > 0:
         falls = []
-        for j in range(len(ants)-1):  #sliding window
-            #check for collision, 
+        for j in range(len(ants)-1):  #sliding window?
+            #check for collision, change direction if so
             print("FIXME:  collisions should include meetings at the 0.5, when positions are one off and they are heading toward one another")
             if ants[j].pos == ants[j+1].pos:
                 ants[j].spd *= -1
